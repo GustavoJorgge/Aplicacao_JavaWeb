@@ -1,4 +1,4 @@
-# Aplicacao_WebJava
+# Aplicacao JavaWeb
 ## Fala Pessoal! 👋
 ### Estou criando este projeto de locação Veicular para praticar aplicações Web, utilizando o Framework Spring Boot🍃
 ## Utilidades
