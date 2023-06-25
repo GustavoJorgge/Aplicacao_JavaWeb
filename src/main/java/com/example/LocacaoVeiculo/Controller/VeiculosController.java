@@ -15,11 +15,15 @@ import java.util.List;
 public class VeiculosController {
 
     private List<Veiculo> veiculos = new ArrayList<>();
-
-    //Quando acontecer a requisição, irá carregar este metodo (abrir o formulario apenas)
-    @GetMapping
+    
+    @GetMapping("/cadastro") //QUando haver uma requisição /veiculos/formulario ira executar este metodo
     public String apresentaPaginaCadastro(){
         return "veiculos/cadastro";
+    }
+
+    @GetMapping
+    public String apresentaPaginaListagem(){
+        return "veiculos/listaveiculos";
     }
 
     @PostMapping
