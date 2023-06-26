@@ -6,7 +6,9 @@
 </head>
 <body>
 <h1>Cadastro de Veiculo</h1>
-<form method="post">
+<!--Quando o formulario for submit, ira enviar para pagina /veiculos-->
+<!-- IMPORTANTE, SE NÃO HOUVER O ACTION, IRA POR PADRAO PARA A URL DO METHODO POST-->
+<form method="post" action="/veiculos">
     <label for = "nome"> Nomedo Veiculo:</label>
     <input id = "nome" name="nome">  <!--ID = A qual campo se refere - NAME = O que é passado por parametro-->
     <br/>

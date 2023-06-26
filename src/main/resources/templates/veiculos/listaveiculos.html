@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Veiculos</title>
@@ -7,7 +7,7 @@
 <body>
 <h1>Lista de Veiculos</h1>
 <table>
-    <thead>
+    <thead> <!--Delimita o tamanho da tabela-->
     <tr>
         <th>NOME</th>
         <th>FABRICANTE</th>
@@ -16,7 +16,12 @@
     </tr>
     </thead>
     <tbody><!--Corpo da tabela-->
-
+        <tr th:each="veiculo : ${lista}"> <!--Ira procurar a variavel lista, fara um loop e ira armazenar em filme-->
+            <td th:text="${veiculo.nome}"></td>
+            <td th:text="${veiculo.fabricante}"></td>
+            <td th:text="${veiculo.anoFab}"></td>
+            <td th:text="${veiculo.placa}"></td>
+        </tr>
     </tbody>
 </table>
 </body>
