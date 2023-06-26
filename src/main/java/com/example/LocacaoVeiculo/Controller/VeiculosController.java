@@ -33,7 +33,6 @@ public class VeiculosController {
         var veiculo = new Veiculo(dados);
         veiculos.add(veiculo);
         System.out.println(veiculos);
-
         return "redirect:/veiculos/listaveiculos"; //ao cadastrar um veiculo, ira redirecionar para pagina /listaveiculos
     }
 
