@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"> <!--A pagina decora a herança da pagina template.html. Como se fosse extends-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Veiculos</title>
+    <title>Lista de Veiculos</title>
 </head>
 <body>
-<h1>Lista de Veiculos</h1>
-<table>
-    <thead> <!--Delimita o tamanho da tabela-->
-    <tr>
-        <th>NOME</th>
-        <th>FABRICANTE</th>
-        <th>ANO</th>
-        <th>PLACA</th>
-    </tr>
-    </thead>
-    <tbody><!--Corpo da tabela-->
-        <tr th:each="veiculo : ${lista}"> <!--Ira procurar a variavel lista, fara um loop e ira armazenar em filme-->
-            <td th:text="${veiculo.nome}"></td>
-            <td th:text="${veiculo.fabricante}"></td>
-            <td th:text="${veiculo.anoFab}"></td>
-            <td th:text="${veiculo.placa}"></td>
+
+<div layout:fragment="conteudo">
+    <h1>Lista de Veiculos</h1>
+    <a href="/veiculos/cadastro">Cadastrar novo veiculo.</a>
+    <table>
+        <thead> <!--Delimita o tamanho da tabela-->
+        <tr>
+            <th>NOME</th>
+            <th>FABRICANTE</th>
+            <th>ANO</th>
+            <th>PLACA</th>
         </tr>
-    </tbody>
-</table>
+        </thead>
+        <tbody><!--Corpo da tabela-->
+            <tr th:each="veiculo : ${lista}"> <!--Ira procurar a variavel lista, fara um loop e ira armazenar em filme-->
+                <td th:text="${veiculo.nome}"></td>
+                <td th:text="${veiculo.fabricante}"></td>
+                <td th:text="${veiculo.anoFab}"></td>
+                <td th:text="${veiculo.placa}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 
 </html>
