@@ -1,7 +1,16 @@
 package com.example.LocacaoVeiculo.domain.veiculo;
 
+import jakarta.persistence.*;
+
+@Entity // Anotação que informa que essa classe representa uma tabela
+@Table (name = "veiculos") //Anotação para informar o nome da tabela
 public class Veiculo {
 
+    @Id //Informando que o id representa chave primaria.
+    // Como o ID sera gerado pelo banco, passamos a anotação GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Parametro para passaremos a estrategia de geração de ID
+
+    private Long id;
     private String nome;
     private String fabricante;
     private Integer anoFab;
@@ -15,6 +24,9 @@ public class Veiculo {
         this.placa = dados.placa();
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getNome() {
         return nome;
     }
