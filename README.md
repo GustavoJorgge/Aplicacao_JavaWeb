@@ -6,6 +6,6 @@
 - **Aplicações com Spring Boot**
 - **CRUD** em aplicações WEB 
 - **Thymeleaf** como tecnologia de templates HTML dinâmicos
-- **Anotações** como: @RequestMapping, @Controller, @PostMapping, etc...
-- **Recurso Java Record**
+- **Anotações** como: @RequestMapping, @Controller, @PostMapping, @Entity, etc...
+- **Spring Data**
 
