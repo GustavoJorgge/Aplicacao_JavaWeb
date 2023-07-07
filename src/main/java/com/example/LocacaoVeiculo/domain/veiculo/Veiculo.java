@@ -24,6 +24,8 @@ public class Veiculo {
         this.placa = dados.placa();
     }
 
+    public Veiculo(){}
+
     public Long getId() {
         return id;
     }
