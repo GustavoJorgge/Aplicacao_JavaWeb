@@ -19,6 +19,7 @@
             <th>FABRICANTE</th>
             <th>ANO</th>
             <th>PLACA</th>
+            <th>AÇÕES</th>
         </tr>
         </thead>
         <tbody><!--Corpo da tabela-->
@@ -27,6 +28,12 @@
                 <td th:text="${veiculo.fabricante}"></td>
                 <td th:text="${veiculo.anoFab}"></td>
                 <td th:text="${veiculo.placa}"></td>
+                <td>
+                    <form action="/veiculos" method = "post">
+                        <input type ="hidden" name = "_method" value = "delete">
+                        <input type = "submit" value = "Excluir">
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>

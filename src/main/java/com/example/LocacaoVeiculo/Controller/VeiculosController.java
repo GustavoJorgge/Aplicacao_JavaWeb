@@ -6,6 +6,7 @@ import com.example.LocacaoVeiculo.domain.veiculo.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,13 @@ public class VeiculosController {
         repository.save(veiculo);//save é utilizado para fazer insert no banco
 
         return "redirect:/veiculos/listaveiculos"; //ao cadastrar um veiculo, ira redirecionar para pagina /listaveiculos
+    }
+
+    @DeleteMapping
+    public String removeVeiculo(){
+        System.out.println("Veiculo Deletado");
+
+        return "redirect:/veiculos/listaveiculos";
     }
 
 }
