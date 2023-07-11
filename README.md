@@ -8,5 +8,5 @@
 - **Thymeleaf** como tecnologia de templates HTML dinâmicos
 - **Anotações** como: @RequestMapping, @Controller, @PostMapping, @Entity, @PutMapping, etc...
 - **Spring Data**
-- **Depencencias**
+- **Padrão MVC**
 
