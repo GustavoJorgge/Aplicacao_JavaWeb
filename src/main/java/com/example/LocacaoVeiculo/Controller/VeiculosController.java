@@ -1,15 +1,14 @@
 package com.example.LocacaoVeiculo.Controller;
 
+import com.example.LocacaoVeiculo.domain.veiculo.DadosAlteraVeiculos;
 import com.example.LocacaoVeiculo.domain.veiculo.DadosCadastroVeiculos;
 import com.example.LocacaoVeiculo.domain.veiculo.Veiculo;
 import com.example.LocacaoVeiculo.domain.veiculo.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,12 @@ public class VeiculosController {
     private VeiculoRepository repository;
 
     @GetMapping("/cadastro") //QUando haver uma requisição /veiculos/formulario ira executar este metodo
-    public String apresentaPaginaCadastro(){
+    public String apresentaPaginaCadastro(Long id,Model model){
+        if(id!=null){
+            var veiculo = repository.getReferenceById(id); //metodo para carregar os dados do objeto
+            model.addAttribute("veiculo",veiculo); //Quando entrar no if ira passar esses valores
+        }
+
         return "veiculos/cadastro";
     }
 
@@ -33,6 +37,7 @@ public class VeiculosController {
     }
 
     @PostMapping
+    @Transactional
     public String cadastraVeiculo(DadosCadastroVeiculos dados){
         var veiculo = new Veiculo(dados);
 
@@ -41,7 +46,17 @@ public class VeiculosController {
         return "redirect:/veiculos/listaveiculos"; //ao cadastrar um veiculo, ira redirecionar para pagina /listaveiculos
     }
 
+    @PutMapping
+    @Transactional //Anotacao do pacote spring para iniciar uma transação no banco de dados
+    public String alteraVeiculo(DadosAlteraVeiculos dados){
+        var veiculo = repository.getReferenceById(dados.id());
+        veiculo.atualizaDados(dados);
+
+        return "redirect:/veiculos/listaveiculos"; //ao cadastrar um veiculo, ira redirecionar para pagina /listaveiculos
+    }
+
     @DeleteMapping
+    @Transactional
     public String removeVeiculo(Long id){
         repository.deleteById(id);
 

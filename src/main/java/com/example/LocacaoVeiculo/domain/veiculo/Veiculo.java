@@ -54,4 +54,12 @@ public class Veiculo {
                 ", placa='" + placa + '\'' +
                 '}';
     }
+
+    //Metodo para sobrescrever os dados da edição do veiculo
+    public void atualizaDados(DadosAlteraVeiculos dados) {
+        this.nome = dados.nome();
+        this.fabricante = dados.fabricante();
+        this.anoFab = dados.anoFab();
+        this.placa = dados.placa();
+    }
 }

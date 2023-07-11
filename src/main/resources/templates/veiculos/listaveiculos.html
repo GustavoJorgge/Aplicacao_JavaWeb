@@ -29,6 +29,9 @@
                 <td th:text="${veiculo.anoFab}"></td>
                 <td th:text="${veiculo.placa}"></td>
                 <td>
+                    <!--Aqui estamos passando o id do item para a url para realizar a edição-->
+                    <a th:href="@{/veiculos/cadastro?id={id}(id=${veiculo.id})}">Editar</a>
+
                     <form action="/veiculos" method = "post">
                         <input type ="hidden" name = "_method" value = "delete">
                         <input type ="hidden" name = "id" th:value="${veiculo.id}">
