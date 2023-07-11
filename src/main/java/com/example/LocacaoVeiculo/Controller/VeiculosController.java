@@ -42,8 +42,8 @@ public class VeiculosController {
     }
 
     @DeleteMapping
-    public String removeVeiculo(){
-        System.out.println("Veiculo Deletado");
+    public String removeVeiculo(Long id){
+        repository.deleteById(id);
 
         return "redirect:/veiculos/listaveiculos";
     }

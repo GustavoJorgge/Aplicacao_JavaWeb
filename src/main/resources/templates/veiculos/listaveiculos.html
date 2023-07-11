@@ -31,6 +31,7 @@
                 <td>
                     <form action="/veiculos" method = "post">
                         <input type ="hidden" name = "_method" value = "delete">
+                        <input type ="hidden" name = "id" th:value="${veiculo.id}">
                         <input type = "submit" value = "Excluir">
                     </form>
                 </td>
